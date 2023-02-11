@@ -58,7 +58,7 @@ public class OrderRepository {
     }
 
     public int getOrderCountByPartnerId(String partnerId) {
-        int orderCount = 0;
+        Integer orderCount = 0;
         if(deliveryPartnerMap.containsKey(partnerId)){
             orderCount = deliveryPartnerMap.get(partnerId).getNumberOfOrders();
         }
@@ -79,14 +79,14 @@ public class OrderRepository {
     }
 
     public int getCountOfUnassignedOrders() {
-        int countOfunassignedOrders = 0;
+        int countOfOrders = 0;
         List<String> orders =  new ArrayList<>(orderMap.keySet());
         for(String orderId: orders){
             if(!orderPartnerMapping.containsKey(orderId)){
-                countOfunassignedOrders += 1;
+                countOfOrders += 1;
             }
         }
-        return countOfunassignedOrders;
+        return countOfOrders;
     }
 
     public int getOrdersLeftAfterGivenTimeByPartnerId(String timeS, String partnerId) {
