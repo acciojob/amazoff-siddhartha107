@@ -71,7 +71,7 @@ public class OrderRepository {
 
             orderlist = partnerOrderMapping.get(partnerId);
         }
-        return new ArrayList<>();
+        return new ArrayList<>(orderlist);
     }
 
     public List<String> getAllOrders() {
